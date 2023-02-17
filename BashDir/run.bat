@@ -1,1 +1,4 @@
-pytest --disable-warnings -s ..//Tests/test_search.py --html=..//Reports/completeTestsReport.html --verbose --capture=tee-sys
+pip install pytest
+pip install openpyxl
+pip install selenium
+pip install webdriver_manager
