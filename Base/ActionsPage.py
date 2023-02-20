@@ -15,9 +15,9 @@ class Action_page:
     def __init__(self, driver):
         self.driver = driver
 
-    ignore_list = [ElementNotVisibleException, NoSuchElementException, StaleElementReferenceException]
-    wait = WebDriverWait(driver, timeout=10, poll_frequency=1, ignored_exceptions=ignore_list)
-    #test
+    # ignore_list = [ElementNotVisibleException, NoSuchElementException, StaleElementReferenceException]
+    # wait = WebDriverWait(driver, timeout=10, poll_frequency=1, ignored_exceptions=ignore_list)
+    # #test
 
     def click(self, locatorValue, locatorType):
         time.sleep(10)
