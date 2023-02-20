@@ -1,18 +1,18 @@
 import time
 import unittest
 import pytest
-from PageObjects.loginPage import loginPage
-from PageObjects.checkCart import cartData
+from PageObjects.loginPage import Login_page
+from PageObjects.checkCart import Cart_data
 
 
 @pytest.mark.usefixtures("beforeClass")
-class checkCart(unittest.TestCase):
+class Check_cart(unittest.TestCase):
     @pytest.fixture(autouse=True)
-    def classObject(self):
-        self.lp = loginPage(self.driver)
-        self.cart = cartData(self.driver)
+    def class_object(self):
+        self.lp = Login_page(self.driver)
+        self.cart = Cart_data(self.driver)
 
-    def test_cartCount(self):
-        self.lp.pageLogin()
-        self.cart.cartData()
+    def test_cart_count(self):
+        self.lp.page_login()
+        self.cart.cart_data()
 
