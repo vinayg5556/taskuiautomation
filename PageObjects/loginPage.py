@@ -1,10 +1,10 @@
 import time
 
-from Base.ActionsPage import ActionPage
-from Utilities.configReader import readConfig
+from Base.ActionsPage import Action_page
+from Utilities.configReader import read_config
 
 
-class Login_page(ActionPage):
+class Login_page(Action_page):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -19,9 +19,9 @@ class Login_page(ActionPage):
     def page_login(self):
         self.click(self.sign_in_BTN_Link, "XPATH")
         time.sleep(2)
-        self.sendKeys(self.user_name_TB, "XPATH", readConfig("login", "userName"))
+        self.send_keys(self.user_name_TB, "XPATH", read_config("login", "userName"))
         self.click(self.continue_BTN, "XPATH")
-        self.sendKeys(self.password_TB, "XPATH", readConfig("login", "password"))
+        self.send_keys(self.password_TB, "XPATH", read_config("login", "password"))
         self.click(self.sign_in_BTN, "XPATH")
         time.sleep(3)
 

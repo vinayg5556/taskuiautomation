@@ -1,8 +1,8 @@
 import time
-from Base.ActionsPage import ActionPage
+from Base.ActionsPage import Action_page
 
 
-class Search_mobile(ActionPage):
+class Search_mobile(Action_page):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -20,34 +20,30 @@ class Search_mobile(ActionPage):
     price_data = "//div[contains(@class, 'none aok-align-center')]//span[contains(@class, 'a-price aok-align')]//span[@class='a-price-whole']"  # textContent
 
     def get_mobile_data(self):
-        productName = self.getText(self.product_title, "XPATH", "textContent")
+        productName = self.get_text(self.product_title, "XPATH", "textContent")
         time.sleep(1)
         # productRating = self.getText(self._ratingCount, "XPATH", "textContent")
         # time.sleep(1)
-        productPrice = self.getText(self.price_data, "XPATH", "textContent")
+        productPrice = self.get_text(self.price_data, "XPATH", "textContent")
         print(
             f"Found product data with name as :: {productName} and with price {productPrice}")
         self.log.info(f"Found product data with name as :: {productName} and with price {productPrice}")
 
     def search_mobile(self):
         self.click(self.logo_BTN, "XPATH")
-        self.sendKeys(self.search_TB, "XPATH", "mobiles")
+        self.send_keys(self.search_TB, "XPATH", "mobiles")
         self.click(self.search_BTN, "XPATH")
         time.sleep(2)
         for i in range(2, 16):
             self.click(self.first_item_inPage, "XPATH")
-            time.sleep(10)
-            self.moveToCurrentTab(1)
-            time.sleep(2)
+            time.sleep(5)
+            self.move_to_current_tab(1)
             self.get_mobile_data()
-            time.sleep(3)
-            self.closeTab()
-            self.moveToCurrentTab(0)
-            time.sleep(2)
-            self.moveToElement(self.pagination)
+            self.close_tab()
+            self.move_to_current_tab(0)
+            self.move_to_the_element(self.pagination)
             time.sleep(3)
             if i < 6:
-                self.clickOnIndex(self.page_number_class_name, "XPATH", i - 1)
+                self.click_on_index(self.page_number_class_name, "XPATH", i - 1)
             else:
                 self.click(self.pagination_number, "XPATH")
-            time.sleep(3)
