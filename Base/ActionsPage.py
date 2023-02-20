@@ -17,6 +17,7 @@ class Action_page:
 
     ignore_list = [ElementNotVisibleException, NoSuchElementException, StaleElementReferenceException]
     wait = WebDriverWait(driver, timeout=10, poll_frequency=1, ignored_exceptions=ignore_list)
+    #test
 
     def click(self, locatorValue, locatorType):
         time.sleep(10)
